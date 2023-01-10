@@ -19,9 +19,9 @@ public class TriangleTest {
 
     @Test
     public void when80and10and10ThenMinus1() {
-        Point a = new Point(8, 0);
         Point b = new Point(1, 0);
         Point c = new Point(1, 0);
+        Point a = new Point(8, 0);
         Triangle triangle = new Triangle(a, b, c);
         double rsl = triangle.area();
         double expected = -1;
