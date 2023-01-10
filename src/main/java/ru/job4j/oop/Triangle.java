@@ -21,7 +21,6 @@ public class Triangle {
         } else {
             return false;
         }
-
     }
 
     public double area() {
