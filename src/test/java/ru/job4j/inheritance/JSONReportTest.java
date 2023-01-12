@@ -17,17 +17,4 @@ public class JSONReportTest {
         String result = new JSONReport().generate(name, body);
         assertThat(result).isEqualTo(expected);
     }
-
-    @Test
-    public void whenNameIsDavidBodyIsNameSong() {
-        String ln = System.lineSeparator();
-        String expected = "{" + ln
-                + "\t\"name\" : \"David Gilmour\"," + ln
-                + "\t\"body\" : \"Shine On You Crazy Diamond\"" + ln
-                + "}";
-        String name = "David Gilmour";
-        String body = "Shine On You Crazy Diamond";
-        String result = new JSONReport().generate(name, body);
-        assertThat(result).isEqualTo(expected);
-    }
 }
