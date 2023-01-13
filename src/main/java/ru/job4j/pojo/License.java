@@ -43,14 +43,10 @@ public class License {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
         License license = (License) o;
-        return owner.equals(license.owner) && model.equals(license.model) && code.equals(license.code) && created.equals(license.created);
+        return Objects.equals(owner, license.owner) && Objects.equals(model, license.model) && code.equals(license.code) && Objects.equals(created, license.created);
     }
 
     @Override
