@@ -20,31 +20,19 @@ public class Tracker {
     }
 
     public Item[] findAll() {
-        Item[] copy = new Item[100];
-        Item[] rsl;
-        int size = 0;
-        for (int i = 0; i < items.length; i++) {
-            if (items[i] != null) {
-                copy[size] = items[i];
-                size++;
-            }
-        }
-        rsl = Arrays.copyOf(copy, size);
-        return rsl;
+        return Arrays.copyOf(items, size);
     }
 
     public Item[] findByName(String key) {
-        Item[] rsl;
-        Item[] copy = new Item[100];
-        int size = 0;
-        for (int i = 0; i < items.length; i++) {
-            if (items[i] != null && items[i].getName().equals(key)) {
-                copy[size] = items[i];
-                size++;
+        Item[] copy = new Item[size];
+        int counter = 0;
+        for (int i = 0; i < size; i++) {
+            if (items[i].getName().equals(key)) {
+                copy[counter] = items[i];
+                counter++;
             }
         }
-        rsl = Arrays.copyOf(copy, size);
-        return rsl;
+        return Arrays.copyOf(copy, counter);
     }
 
     private int indexOf(int id) {
