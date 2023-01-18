@@ -33,6 +33,18 @@ public class StartUI {
                 } else {
                     System.out.println("The repository does not contain items yet");
                 }
+            } else if (select == 2) {
+                System.out.println("=== Edit item ===");
+                System.out.print("Enter id: ");
+                int id = Integer.parseInt(scanner.nextLine());
+                System.out.print("Enter name: ");
+                String name = scanner.nextLine();
+                Item item = new Item(name);
+                if (tracker.replace(id, item)) {
+                    System.out.println("The item was changed successfully.");
+                } else {
+                    System.out.println("Item replacement error");
+                }
             }
         }
     }
