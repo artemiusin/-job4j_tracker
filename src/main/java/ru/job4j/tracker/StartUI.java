@@ -10,11 +10,12 @@ public class StartUI {
             System.out.print("Select: ");
             int select = Integer.parseInt(scanner.nextLine());
             if (select != 6) {
-                System.out.println("Пользователь выбрал: " + select);
+                System.out.println("The player selected: " + select);
             } else {
                 run = false;
             }
         }
+
     }
 
     private void showMenu() {
