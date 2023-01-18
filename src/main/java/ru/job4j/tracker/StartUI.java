@@ -14,6 +14,16 @@ public class StartUI {
             } else {
                 run = false;
             }
+            if (select == 0) {
+                System.out.println("=== Create a new Item ===");
+                System.out.print("Enter name: ");
+                String name = scanner.nextLine();
+                Item item = new Item(name);
+                tracker.add(item);
+                System.out.println("The item added: " + item);
+            } else if (select == 6) {
+                run = false;
+            }
         }
 
     }
