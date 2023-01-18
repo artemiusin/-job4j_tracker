@@ -16,8 +16,6 @@ public class StartUI {
                 Item item = new Item(name);
                 tracker.add(item);
                 System.out.println("The item added: " + item);
-            } else if (select == 6) {
-                run = false;
             } else if (select == 1) {
                 System.out.println("=== Show all items ===");
                 Item[] items = tracker.findAll();
@@ -71,6 +69,8 @@ public class StartUI {
                 } else {
                     System.out.println("Item with name: " + name + " not found.");
                 }
+            } else if (select == 6) {
+                run = false;
             }
         }
     }
