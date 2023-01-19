@@ -34,7 +34,6 @@ public class StartUI {
                 }
             } else if (select == 3) {
                 System.out.println("=== Delete item ===");
-                System.out.print("Enter id: ");
                 int id = input.askInt("Enter id: ");
                 if (tracker.delete(id)) {
                     System.out.println("The item was deleted successfully.");
@@ -43,7 +42,6 @@ public class StartUI {
                 }
             } else if (select == 4) {
                 System.out.println("=== Find item by id ===");
-                System.out.print("Enter id: ");
                 int id = input.askInt("Enter id: ");
                 Item item = tracker.findById(id);
                 if (item != null) {
@@ -53,7 +51,6 @@ public class StartUI {
                 }
             } else if (select == 5) {
                 System.out.println("=== Find items by name ===");
-                System.out.print("Enter name: ");
                 String name = input.askStr("Enter name: ");
                 Item[] items = tracker.findByName(name);
                 if (items.length > 0) {
