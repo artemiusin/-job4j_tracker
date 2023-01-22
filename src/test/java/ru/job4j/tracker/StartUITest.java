@@ -4,42 +4,52 @@ import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class StartUITest {
-/*    @Test
-    public void whenAddItem() {
-        String[] answers = {"Fix PC"};
-        Input input = new StubInput(answers);
+    @Test
+    public void whenCreateItem() {
+        Input in = new StubInput(
+                new String[] {"0", "Item name", "1"}
+        );
         Tracker tracker = new Tracker();
-        StartUI.createItem(input, tracker);
-        Item created = tracker.findAll()[0];
-        Item expected = new Item("Fix PC");
-        assertThat(created.getName()).isEqualTo(expected.getName());
+        UserAction[] actions = {
+                new CreateAction(),
+                new ExitAction()
+        };
+        new StartUI().init(in, tracker, actions);
+        assertThat(tracker.findAll()[0].getName()).isEqualTo("Item name");
     }
 
     @Test
-    public void whenEditItem() {
+    public void whenReplaceItem() {
         Tracker tracker = new Tracker();
-        Item item = new Item("new item");
-        tracker.add(item);
-        String[] answers = {
-                String.valueOf(item.getId()),
-                "edited item"
+        /* ƒобавим в tracker новую за€вку */
+        Item item = tracker.add(new Item("Replaced item"));
+        /* ¬ходные данные должны содержать ID добавленной за€вки item.getId() */
+        String replacedName = "New item name";
+        Input in = new StubInput(
+                new String[]{"0", String.valueOf(item.getId()), "1"}
+        );
+        UserAction[] actions = {
+                new EditAction(),
+                new ExitAction()
         };
-        StartUI.editItem(new StubInput(answers), tracker);
-        Item edited = tracker.findById(item.getId());
-        assertThat(edited.getName()).isEqualTo("edited item");
+        new StartUI().init(in, tracker, actions);
+        assertThat(tracker.findById(item.getId()).getName()).isEqualTo(replacedName);
     }
 
     @Test
     public void whenDeleteItem() {
         Tracker tracker = new Tracker();
-        Item item = new Item("new item");
-        tracker.add(item);
-        String[] answers = {
-                String.valueOf(item.getId())
+        /* ƒобавим в tracker новую за€вку */
+        Item item = tracker.add(new Item("Deleted item"));
+        /* ¬ходные данные должны содержать ID добавленной за€вки item.getId() */
+        Input in = new StubInput(
+                new String[]{"0", String.valueOf(item.getId()), "1"}
+        );
+        UserAction[] actions = {
+                new DeleteAction(),
+                new ExitAction()
         };
-        StartUI.deleteItem(new StubInput(answers), tracker);
-        Item edited = tracker.findById(item.getId());
-        assertThat(edited).isNull();
+        new StartUI().init(in, tracker, actions);
+        assertThat(tracker.findById(item.getId())).isNull();
     }
- */
 }
