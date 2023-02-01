@@ -45,9 +45,9 @@ public class PasswordValidator {
         if (rsl == -1) {
             throw new IllegalArgumentException("Password should contain at least one special symbol");
         }
-        if (password.toLowerCase().contains("qwerty") || password.toLowerCase().contains("12345") ||
-                password.toLowerCase().contains("password") || password.toLowerCase().contains("admin") ||
-                password.toLowerCase().contains("user")) {
+        if (password.toLowerCase().contains("qwerty") || password.toLowerCase().contains("12345")
+                || password.toLowerCase().contains("password") || password.toLowerCase().contains("admin")
+                || password.toLowerCase().contains("user")) {
             throw new IllegalArgumentException("Password shouldn't contain substrings: "
                     + "qwerty, 12345, password, admin, user");
         }
