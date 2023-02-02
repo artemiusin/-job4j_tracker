@@ -10,39 +10,33 @@ public class PasswordValidator {
         }
         char[] chars = password.toCharArray();
         int rsl = -1;
+        int rsl1 = -1;
+        int rsl2 = -1;
+        int rsl3 = -1;
         for (int i = 0; i < chars.length; i++) {
             if (Character.isUpperCase(chars[i])) {
                 rsl = i;
+            }
+            if (Character.isLowerCase(chars[i])) {
+                rsl1 = i;
+            }
+            if (Character.isDigit(chars[i])) {
+                rsl2 = i;
+            }
+            if (!Character.isDigit(chars[i]) && !Character.isAlphabetic(chars[i])) {
+                rsl3 = i;
             }
         }
         if (rsl == -1) {
             throw new IllegalArgumentException("Password should contain at least one uppercase letter");
         }
-        rsl = -1;
-        for (int i = 0; i < chars.length; i++) {
-            if (Character.isLowerCase(chars[i])) {
-                rsl = i;
-            }
-        }
-        if (rsl == -1) {
+        if (rsl1 == -1) {
             throw new IllegalArgumentException("Password should contain at least one lowercase letter");
         }
-        rsl = -1;
-        for (int i = 0; i < chars.length; i++) {
-            if (Character.isDigit(chars[i])) {
-                rsl = i;
-            }
-        }
-        if (rsl == -1) {
+        if (rsl2 == -1) {
             throw new IllegalArgumentException("Password should contain at least one figure");
         }
-        rsl = -1;
-        for (int i = 0; i < chars.length; i++) {
-            if (!Character.isDigit(chars[i]) && !Character.isAlphabetic(chars[i])) {
-                rsl = i;
-            }
-        }
-        if (rsl == -1) {
+        if (rsl3 == -1) {
             throw new IllegalArgumentException("Password should contain at least one special symbol");
         }
         if (password.toLowerCase().contains("qwerty") || password.toLowerCase().contains("12345")
